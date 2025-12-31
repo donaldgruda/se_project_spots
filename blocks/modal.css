@@ -1,6 +1,3 @@
-/* TODO - add correct font styles for everything */
-/* TODO - responsive design */
-
 .modal {
   visibility: hidden;
   background-color: #00000080;
@@ -42,7 +39,6 @@
   opacity: 40%;
   transition: opacity 0.3s ease;
   padding: 0;
-  /* TODO - add close icon and make sure it looks right */
 }
 
 .modal__close-btn:hover {
@@ -107,7 +103,6 @@
   width: 156px;
   height: 52px;
   font-family: "Poppins", sans-serif;
-  /* TODO - remove max-width in media query */
 }
 
 .modal__submit-btn:hover {
