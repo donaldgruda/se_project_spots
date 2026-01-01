@@ -66,8 +66,7 @@
   margin: 0 0 16px;
   font-size: 16px;
   font-weight: 500;
-  color: #212121;
-  opacity: 70%;
+  color: rgba(33, 33, 33, 0.7);
   line-height: 1.2;
   display: block;
 }
@@ -115,11 +114,11 @@
 
 @media screen and (max-width: 627px) {
   .modal__container {
-    padding: 12px;
+    padding: 22px 12px 12px;
   }
 
   .modal__close-btn {
-    top: 12px;
+    top: 22px;
     right: 12px;
   }
 
