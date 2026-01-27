@@ -23,6 +23,15 @@
   display: block;
   border-radius: 8px;
   margin-bottom: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.card__image:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
 }
 
 .card__content {
