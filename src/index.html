@@ -3,44 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="???" />
     <meta name="author" content="Donald Gruda" />
-    <meta name="keywords" content="HTML, CSS, ???" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
   </head>
+
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Spot logo" class="header__logo" />
+        <img
+          src="<%= require('./images/logo.svg') %>"
+          alt="Spot logo"
+          class="header__logo"
+        />
       </header>
+
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/spots-images/avatar.jpg"
+            src="<%= require('./images/spots-images/avatar.jpg') %>"
             alt="Bessie Coleman"
             class="profile__avatar"
           />
+
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
+
             <button type="button" class="profile__edit-btn">
-              <img src="./images/pencil.svg" alt="Pencil icon" />Edit Profile
+              <img
+                src="<%= require('./images/pencil.svg') %>"
+                alt="Pencil icon"
+              />
+              Edit Profile
             </button>
           </div>
+
           <button type="button" class="profile__add-btn">
-            <img src="./images/plus.svg" alt="Plus icon" />New Post
+            <img src="<%= require('./images/plus.svg') %>" alt="Plus icon" />
+            New Post
           </button>
         </section>
+
         <section class="cards page__section">
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
                 <button class="card__delete-btn" type="button"></button>
+
                 <img src="" alt="" class="card__image" />
+
                 <div class="card__content">
-                  <h2 class="card__title">Val Thorens</h2>
+                  <h2 class="card__title"></h2>
                   <button type="button" class="card__like-btn"></button>
                 </div>
               </li>
@@ -48,6 +61,7 @@
           </ul>
         </section>
       </main>
+
       <footer class="footer page__section">
         <p class="footer__text">2025 &copy; Donald Gruda</p>
       </footer>
@@ -56,9 +70,11 @@
     <div class="modal" id="edit-profile-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-btn"></button>
+
         <h2 class="modal__title">Edit profile</h2>
+
         <form class="modal__form">
-          <label for="profile-name-input" class="modal__label">
+          <label class="modal__label">
             Name
             <input
               id="profile-name-input"
@@ -67,7 +83,8 @@
               placeholder="Type your name"
             />
           </label>
-          <label for="profile-description-input" class="modal__label">
+
+          <label class="modal__label">
             Description
             <input
               id="profile-description-input"
@@ -76,6 +93,7 @@
               placeholder="Describe yourself"
             />
           </label>
+
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>
       </div>
@@ -84,9 +102,11 @@
     <div class="modal" id="new-post-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-btn"></button>
+
         <h2 class="modal__title">New post</h2>
+
         <form class="modal__form">
-          <label for="card-caption-input" class="modal__label">
+          <label class="modal__label">
             Title
             <input
               id="card-caption-input"
@@ -96,7 +116,8 @@
               required
             />
           </label>
-          <label for="card-image-input" class="modal__label">
+
+          <label class="modal__label">
             Image link
             <input
               id="card-image-input"
@@ -106,6 +127,7 @@
               required
             />
           </label>
+
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>
       </div>
@@ -117,11 +139,10 @@
           type="button"
           class="modal__close-btn modal__close_type_preview"
         ></button>
-        <img src="#" alt="" class="modal__image" />
+
+        <img src="" alt="" class="modal__image" />
         <h2 class="modal__caption"></h2>
       </div>
     </div>
-
-    <script src="./scripts/index.js"></script>
   </body>
 </html>
