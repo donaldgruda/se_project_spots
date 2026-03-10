@@ -163,11 +163,12 @@
         <h2 class="modal__caption"></h2>
       </div>
     </div>
+
     <div class="modal" id="avatar-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-btn"></button>
         <h2 class="modal__title">Edit avatar</h2>
-        <form class="modal__form" id="edit-avatar-form">
+        <form class="modal__form" id="edit-avatar-form" novalidate>
           <label class="modal__label">
             Avatar URL
             <input
@@ -177,18 +178,18 @@
               placeholder="Image URL"
               required
             />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
           </label>
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>
       </div>
     </div>
 
-    <!-- TODO - style the modal-->
     <div class="modal" id="delete-modal">
       <div class="modal__container">
         <button
           type="button"
-          class="modal__close-btn"
+          class="modal__close-btn modal__close-btn_type_preview"
           aria-label="Close modal"
         ></button>
 

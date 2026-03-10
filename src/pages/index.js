@@ -1,6 +1,11 @@
 import "./index.css";
 import Api from "../utils/Api.js";
-import { enableValidation } from "../utils/validation.js";
+import {
+  enableValidation,
+  disableButton,
+  resetValidation,
+  settings,
+} from "../utils/validation.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -9,7 +14,6 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-//Destructurew hte second item in the callback of.then()
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const profileNameEl = document.querySelector(".profile__name");
@@ -41,7 +45,6 @@ const previewCaptionEl = previewModal.querySelector(".modal__caption");
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
 const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
-const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
 const profileAvatarEl = document.querySelector(".profile__avatar");
@@ -119,13 +122,11 @@ function getCardElement(data) {
   return cardElement;
 }
 
-// Todo - use this function wherever needed
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
   document.addEventListener("keydown", handleEscClose);
 }
 
-//TODO - use this function wherever needed
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   document.removeEventListener("keydown", handleEscClose);
@@ -134,10 +135,9 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editProfileForm, settings);
   openModal(editProfileModal);
 });
-
-//TODO set cllick listener
 
 editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
@@ -180,6 +180,7 @@ avatarCloseBtn.addEventListener("click", () => {
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
 });
+
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 function handleAvatarSubmit(evt) {
@@ -211,6 +212,7 @@ function handleAddCardSubmit(evt) {
       const cardElement = getCardElement(data);
       cardsList.prepend(cardElement);
       evt.target.reset();
+      disableButton(submitBtn, settings);
       closeModal(newPostModal);
     })
     .catch(console.error)
@@ -263,14 +265,6 @@ document.querySelectorAll(".modal").forEach((modal) => {
   });
 });
 
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__submit-btn_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 enableValidation(settings);
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
