@@ -63,28 +63,37 @@
   opacity: 1;
 }
 
-.modal__close-btn.modal__close_type_preview {
+.modal__close-btn.modal__close-btn_type_preview {
   background-image: url(../images/spots-images/close-white.svg);
   top: 0;
   right: -52.5px;
   opacity: 1;
 }
 
-.modal__close-btn.modal__close_type_preview:hover {
+.modal__close-btn.modal__close-btn_type_preview:hover {
   background-image: url(../images/spots-images/close-gray.svg);
   opacity: 1;
 }
 
 .modal__title {
   margin: 0 0 32px;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
   color: #212121;
+  text-align: center;
 }
 
 .modal__form {
   margin-top: 32px;
+}
+
+.modal__form_type_delete {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 16px auto 0;
+  width: 332px;
 }
 
 .modal__label {
@@ -94,7 +103,6 @@
   line-height: 1.2;
   display: block;
   margin-bottom: 32px;
-  display: block;
 }
 
 .modal__input {
@@ -135,7 +143,7 @@
 
 .modal__submit-btn {
   margin-top: 0;
-  padding: 16px 24px;
+  padding: 18px 32px;
   background-color: #212121;
   color: #fcf5e5;
   border: none;
@@ -153,6 +161,7 @@
 .modal__submit-btn:hover {
   background-color: #000;
 }
+
 .modal__error {
   display: block;
   color: #ff0000;
@@ -188,6 +197,25 @@
   display: inline-block;
 }
 
+.modal__submit-btn_delete {
+  background-color: #ff6565;
+  color: #fff;
+}
+
+.modal__submit-btn_delete:hover {
+  background-color: #ff4d4d;
+}
+
+.modal__submit-btn_cancel {
+  background-color: transparent;
+  color: #212121;
+  border: 1px solid #212121;
+}
+
+.modal__submit-btn_cancel:hover {
+  background-color: #f2f2f2;
+}
+
 .modal__error_visible {
   visibility: visible;
 }
@@ -199,6 +227,16 @@
 }
 
 @media screen and (max-width: 480px) {
+  .modal__form_type_delete {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .modal__form_type_delete .modal__submit-btn {
+    max-width: none;
+    width: 100%;
+  }
+
   .modal__caption {
     font-size: 16px;
   }
@@ -216,7 +254,7 @@
     right: 12px;
   }
 
-  .modal__close-btn.modal__close_type_preview {
+  .modal__close-btn.modal__close-btn_type_preview {
     top: 0;
     right: 0;
   }
@@ -236,7 +274,7 @@
 }
 
 @media screen and (max-width: 627px) {
-  .modal__close-btn.modal__close_type_preview {
+  .modal__close-btn.modal__close-btn_type_preview {
     top: -48px;
     right: 0;
   }
